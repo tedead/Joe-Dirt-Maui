@@ -37,6 +37,27 @@
                 HorizontalOptions="Center" />
             </HorizontalStackLayout>
 
+            <HorizontalStackLayout
+                Margin="20"
+                Spacing="10">
+                <Button
+                x:Name="backtowork"
+                Text="Back to work"
+                SemanticProperties.Hint="backtowork"
+                Clicked="OnButtonClick"
+                CommandParameter="backtowork.mp3"
+                HorizontalOptions="Center" 
+                />
+
+                <Button
+                x:Name="boeing"
+                Text="boeing"
+                SemanticProperties.Hint="boeing"
+                Clicked="OnButtonClick"
+                CommandParameter="boeing.mp3"
+                HorizontalOptions="Center" />
+            </HorizontalStackLayout>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
