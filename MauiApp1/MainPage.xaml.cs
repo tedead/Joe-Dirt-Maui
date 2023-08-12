@@ -6,7 +6,8 @@ public partial class MainPage : ContentPage
 {
 	int count = 0;
 
-    readonly IAudioManager audioManager;
+    //readonly IAudioManager audioManager;
+    string currentAudioPlaying = string.Empty;
 
     IAudioPlayer audioPlayer;
 
@@ -14,14 +15,21 @@ public partial class MainPage : ContentPage
     {
         try
         {
-            //var audioPlayer = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync(resource));
-            audioPlayer = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync(resource));
 
-
-            if (audioPlayer.IsPlaying)
+            if(audioPlayer != null && audioPlayer.IsPlaying)
             {
                 audioPlayer.Stop();
+
+                if(resource == currentAudioPlaying)
+                {
+                    return;
+                }
             }
+
+            //audioPlayer = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync(resource));
+            audioPlayer = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync(resource));
+
+            currentAudioPlaying = resource;
 
             audioPlayer.Play();
         }
@@ -77,12 +85,12 @@ public partial class MainPage : ContentPage
     {
         count++;
 
-        if (count == 1)
-            CounterBtn.Text = $"Clicked {count} time";
-        else
-            CounterBtn.Text = $"Clicked {count} times";
+        //if (count == 1)
+        //    CounterBtn.Text = $"Clicked {count} time";
+        //else
+        //    CounterBtn.Text = $"Clicked {count} times";
 
-        SemanticScreenReader.Announce(CounterBtn.Text);
+        //SemanticScreenReader.Announce(CounterBtn.Text);
     }
 }
 
