@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MauiApp1.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center"
+            x:Name="myStack">
+
+            <Image
+                Source="background.png"
+                SemanticProperties.Description="Joe Dirt"
+                Aspect="AspectFill" />
+
+            <HorizontalStackLayout
+                Margin="20"
+                Spacing="10">
+            <Button
+                x:Name="a1976"
+                Text="1976"
+                SemanticProperties.Hint="1976"
+                Clicked="OnButtonClick"
+                CommandParameter="a1976.mp3"
+                HorizontalOptions="Center" 
+                />
+
+            <Button
+                x:Name="autotrader"
+                Text="autotrader"
+                SemanticProperties.Hint="autotrader"
+                Clicked="OnButtonClick"
+                CommandParameter="autotrader.mp3"
+                HorizontalOptions="Center" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
